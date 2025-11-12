@@ -1,24 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
-import { NgClass } from "@angular/common";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-face-snap-g1',
+  imports: [NgClass],
   templateUrl: './face-snap-g1.html',
-  styleUrls: ['./face-snap-g1.scss'],
-  imports: [NgClass]
+  styleUrl: './face-snap-g1.scss'
 })
-export class FaceSnapComponent implements OnInit {
+export class FaceSnapG1 implements OnInit {
 
   @Input() faceSnap!: FaceSnap;
+
   buttonText!: string;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.buttonText = 'Oh Snap!';
   }
 
   onSnap() {
-    if (this.buttonText === 'Oh Snap!') {
+    if(this.buttonText === 'Oh Snap!') {
       this.faceSnap.snaps++;
       this.buttonText = 'Oops, unSnap!';
     } else {
@@ -26,5 +27,4 @@ export class FaceSnapComponent implements OnInit {
       this.buttonText = 'Oh Snap!';
     }
   }
-  
 }

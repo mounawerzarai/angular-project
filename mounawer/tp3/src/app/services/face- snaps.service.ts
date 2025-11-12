@@ -1,24 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FaceSnapG1 } from "./face-snap-g1/face-snap-g1";
-import { FaceSnap } from './models/face-snap.model';
-import { NgFor } from '@angular/common';
-import { Header } from "./header/header";
-import { TimePicker } from "./time-picker/time-picker";
+import { Injectable } from '@angular/core';
+import { FaceSnap } from '../models/face-snap.model';
 
-
-@Component({
-  selector: 'app-root',
-  imports: [FaceSnapG1, NgFor, Header, TimePicker],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+@Injectable({
+providedIn: 'root'
 })
-export class App implements OnInit {
-  faceSnaps!: FaceSnap[];
-
-  ngOnInit() {
-
-    this.faceSnaps = [
-      {
+export class FaceSnapsService {
+    faceSnaps: FaceSnap[] = [
+        {
         title: 'Archibald',
         description: 'Mon meilleur ami depuis tout petit !',
         imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
@@ -39,6 +27,5 @@ export class App implements OnInit {
         createdDate: new Date(),
         snaps: 0
       }
-    ];
-  }
+    ]
 }
